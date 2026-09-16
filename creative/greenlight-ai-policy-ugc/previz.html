@@ -1,0 +1,441 @@
+<title>Greenlight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#E7EAE6; --surface:#F7F8F6; --sunk:#DDE1DC; --ink:#131718; --ink-2:#3C4442;
+  --muted:#697370; --rule:#CBD1C9; --rule-2:#B4BCB2;
+  --go:#25794D; --check:#9C6B10; --stop:#C2312A;
+  --go-soft:#D7E7DD; --stop-soft:#F4DAD8; --check-soft:#F2E5C9;
+  --mon:#0D100F; --mon-ink:#EDEFEA; --mon-rule:#2C312E;
+  --shadow:0 1px 0 rgba(19,23,24,.06), 0 8px 24px -16px rgba(19,23,24,.35);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --bg:#0E1112; --surface:#161A1B; --sunk:#101414; --ink:#E6EAE4; --ink-2:#C2C9C1;
+  --muted:#8A938D; --rule:#262C2C; --rule-2:#39413F;
+  --go:#5FBF89; --check:#D7A445; --stop:#E9635A;
+  --go-soft:#16281F; --stop-soft:#2B1917; --check-soft:#2A2113;
+  --mon:#080A0A; --mon-ink:#EDEFEA; --mon-rule:#232827;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 10px 30px -18px #000;
+}}
+:root[data-theme="dark"]{
+  --bg:#0E1112; --surface:#161A1B; --sunk:#101414; --ink:#E6EAE4; --ink-2:#C2C9C1;
+  --muted:#8A938D; --rule:#262C2C; --rule-2:#39413F;
+  --go:#5FBF89; --check:#D7A445; --stop:#E9635A;
+  --go-soft:#16281F; --stop-soft:#2B1917; --check-soft:#2A2113;
+  --mon:#080A0A; --mon-ink:#EDEFEA; --mon-rule:#232827;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 10px 30px -18px #000;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+h1,h2,h3{text-wrap:balance;margin:0}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- masthead ---------- */
+header.mast{border-bottom:1px solid var(--rule);padding-block:44px 0}
+.mast h1{font-size:clamp(52px,13vw,116px);font-weight:800;letter-spacing:-.045em;line-height:.88;margin-block:14px 0}
+.mast h1 .lit{color:var(--go)}
+.dek{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(17px,2.4vw,21px);line-height:1.45;
+  max-width:37em;color:var(--ink-2);margin-block:18px 0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;background:var(--rule);
+  border-top:1px solid var(--rule);margin-block:34px 0}
+.fact{background:var(--bg);padding:14px 0 18px}
+.fact dt{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fact dd{margin:5px 0 0;font-size:15px;font-weight:600;letter-spacing:-.01em}
+.facts .fact:not(:first-child){padding-left:14px}
+
+/* ---------- sections ---------- */
+section{padding-block:56px 0}
+.shead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.shead h2{font-size:clamp(23px,4vw,32px);font-weight:700;letter-spacing:-.025em}
+.shead .note{font-size:12.5px;color:var(--muted);margin-left:auto}
+.lede{font-family:"Source Serif 4",Georgia,serif;font-size:16.5px;line-height:1.55;max-width:62ch;color:var(--ink-2);margin-block:18px 0}
+
+/* ---------- previz ---------- */
+.studio{display:grid;grid-template-columns:minmax(280px,352px) 1fr;gap:30px;margin-block:26px 0;align-items:start}
+@media (max-width:820px){.studio{grid-template-columns:1fr}}
+.monitor{background:var(--mon);border:1px solid var(--mon-rule);border-radius:3px;aspect-ratio:9/16;
+  position:relative;overflow:hidden;max-width:100%;box-shadow:var(--shadow)}
+.frame{position:absolute;inset:0}
+.frame svg{position:absolute;inset:0;width:100%;height:100%}
+.guides{position:absolute;inset:0;pointer-events:none}
+.guides i{position:absolute;left:0;right:0;border-top:1px dashed rgba(237,239,234,.16)}
+.guides i.t{top:12%} .guides i.b{bottom:20%}
+.chip-lane{position:absolute;top:12px;left:12px;display:flex;gap:5px;z-index:3}
+.lane{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 7px;border-radius:2px;color:#080A0A}
+.lane.go{background:#5FBF89} .lane.stop{background:#E9635A} .lane.check{background:#D7A445}
+.aimark{position:absolute;right:10px;bottom:10px;z-index:3;font-size:8.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:rgba(237,239,234,.5);border:1px solid rgba(237,239,234,.22);padding:3px 6px;border-radius:2px}
+.shotsize{position:absolute;top:12px;right:12px;z-index:3;color:rgba(237,239,234,.62)}
+.shotsize span{font-size:9.5px;letter-spacing:.1em}
+.ost{position:absolute;left:0;right:0;bottom:20%;padding:0 22px;text-align:center;z-index:2}
+.ost b{display:inline-block;background:var(--mon-ink);color:var(--mon);font-size:clamp(13px,3.6vw,17px);
+  font-weight:800;letter-spacing:-.015em;line-height:1.2;padding:5px 9px;border-radius:2px;text-wrap:balance}
+.ost b.go{background:#5FBF89} .ost b.stop{background:#E9635A}
+.ost small{display:block;margin-top:7px;font-size:11px;letter-spacing:.02em;color:rgba(237,239,234,.72)}
+.burn{position:absolute;left:14px;bottom:calc(20% + 62px);z-index:2;color:rgba(237,239,234,.34);font-size:9.5px;letter-spacing:.08em}
+
+/* transport */
+.transport{margin-top:12px;display:flex;align-items:center;gap:10px}
+button.tbtn{font:inherit;font-weight:700;font-size:12.5px;letter-spacing:.04em;background:var(--ink);color:var(--surface);
+  border:0;border-radius:2px;padding:9px 15px;cursor:pointer}
+button.tbtn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule-2)}
+button.tbtn:focus-visible,.beat:focus-visible{outline:2px solid var(--go);outline-offset:2px}
+.tc{margin-left:auto;font-size:12.5px;font-weight:500;color:var(--muted)}
+.tc b{color:var(--ink);font-weight:700}
+.scrub{margin-top:10px;height:22px;position:relative;cursor:pointer;touch-action:none}
+.scrub .track{position:absolute;top:9px;left:0;right:0;height:4px;background:var(--sunk);border-radius:2px;overflow:hidden}
+.scrub .fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--go)}
+.scrub .ticks{position:absolute;top:9px;left:0;right:0;height:4px;display:flex;gap:1px}
+.scrub .ticks u{display:block;height:4px;background:transparent;border-right:1px solid var(--bg)}
+.scrub .head{position:absolute;top:2px;width:2px;height:18px;background:var(--ink);transform:translateX(-1px)}
+
+/* shot list */
+.beats{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.beat{display:grid;grid-template-columns:62px 1fr;gap:14px;text-align:left;width:100%;background:transparent;
+  border:0;border-bottom:1px solid var(--rule);padding:13px 10px 14px 0;cursor:pointer;color:inherit;font:inherit;
+  border-left:2px solid transparent;transition:background .15s ease,border-color .15s ease}
+.beat:hover{background:var(--surface)}
+.beat[aria-current="true"]{background:var(--surface);border-left-color:var(--go)}
+.beat .t{font-size:11.5px;font-weight:500;color:var(--muted);padding-top:2px}
+.beat[aria-current="true"] .t{color:var(--go)}
+.beat .k{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.beat .v{font-family:"Source Serif 4",Georgia,serif;font-size:15px;line-height:1.42;margin-top:3px;color:var(--ink)}
+.beat .d{font-size:12px;color:var(--muted);margin-top:5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- generic blocks ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-block:24px 0}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.spec{border-top:1px solid var(--rule)}
+.spec div{display:grid;grid-template-columns:104px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.spec dt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.spec dd{margin:0;font-size:14px;line-height:1.45}
+.vs{border-top:1px solid var(--rule)}
+.vs div{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13.5px;line-height:1.4}
+.vs .no{color:var(--muted)}
+.vs .no::before{content:"✕";color:var(--stop);font-weight:700;margin-right:7px}
+.vs .yes::before{content:"✓";color:var(--go);font-weight:700;margin-right:7px}
+.vs .hd{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.vs .hd::before{content:none}
+.prompt{background:var(--sunk);border:1px solid var(--rule);border-left:2px solid var(--go);border-radius:2px;
+  padding:14px 15px;margin-top:14px;font-size:12px;line-height:1.62;white-space:pre-wrap;word-break:break-word;color:var(--ink-2)}
+.prompt .lbl{display:block;font-family:Archivo,sans-serif;font-size:10px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.prompt.neg{border-left-color:var(--stop)}
+
+/* slate */
+.slate{border-top:2px solid var(--ink);margin-top:24px}
+.ep{display:grid;grid-template-columns:34px 1fr 128px;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start}
+@media (max-width:700px){.ep{grid-template-columns:28px 1fr;gap:12px}.ep .clause{grid-column:2;margin-top:2px}}
+.ep .n{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--rule-2);line-height:1;padding-top:3px}
+.ep h3{font-size:19px;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.tag{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:2px}
+.tag.go{background:var(--go-soft);color:var(--go)} .tag.stop{background:var(--stop-soft);color:var(--stop)}
+.tag.check{background:var(--check-soft);color:var(--check)}
+.ep p{margin:6px 0 0;font-family:"Source Serif 4",Georgia,serif;font-size:14.5px;line-height:1.48;color:var(--ink-2);max-width:60ch}
+.ep .clause{font-size:11px;color:var(--muted);letter-spacing:.02em;text-align:right;padding-top:6px}
+@media (max-width:700px){.ep .clause{text-align:left}}
+
+/* guardrails */
+.rails{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin-top:22px;border-radius:2px;overflow:hidden}
+.rail{background:var(--surface);padding:16px 16px 18px}
+.rail h4{margin:0;font-size:14px;font-weight:700;letter-spacing:-.01em}
+.rail .c{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.rail p{margin:6px 0 0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+footer{margin-top:60px;border-top:1px solid var(--rule);padding-top:18px;font-size:12px;color:var(--muted);
+  display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+</style>
+
+<div class="wrap">
+<header class="mast">
+  <p class="eyebrow">ISMS Policy · AI Governance and Usage · owner: Head of IT</p>
+  <h1>GREEN<span class="lit">LIGHT</span></h1>
+  <p class="dek">Nteractive's AI policy, cut into six vertical videos hosted by someone who looks like she works here. One episode, one clause, one answer to the only question anyone actually asks: <em>am I allowed to do this?</em></p>
+  <dl class="facts">
+    <div class="fact"><dt>Format</dt><dd>9:16 · 30–45s</dd></div>
+    <div class="fact"><dt>Series 1</dt><dd>6 episodes</dd></div>
+    <div class="fact"><dt>Host</dt><dd>“Tess”, in-house</dd></div>
+    <div class="fact"><dt>Cadence</dt><dd>Fortnightly</dd></div>
+    <div class="fact"><dt>Channels</dt><dd>Viva Engage · Teams</dd></div>
+  </dl>
+</header>
+
+<section id="previz">
+  <div class="shead">
+    <h2>The 30-second view</h2>
+    <span class="note">Episode 1 · “Two Copilots” · press play, it runs in real time</span>
+  </div>
+  <p class="lede">Eight shots, 89 words, 30.0 seconds. This is previz — framing, burned-in text and the exact voice-over, so the script can be signed off before a single frame is generated. Scrub or click any shot.</p>
+
+  <div class="studio">
+    <div>
+      <div class="monitor" id="monitor">
+        <div class="frame" id="frame"></div>
+        <div class="guides"><i class="t"></i><i class="b"></i></div>
+        <div class="chip-lane" id="lanes"></div>
+        <div class="shotsize"><span class="mono" id="shotsize">MCU</span></div>
+        <div class="burn mono" id="burn">SHOT 1/8</div>
+        <div class="ost" id="ost"></div>
+        <div class="aimark">AI-generated presenter</div>
+      </div>
+      <div class="transport">
+        <button class="tbtn" id="play" type="button">▶ Play</button>
+        <button class="tbtn ghost" id="restart" type="button">↺ Restart</button>
+        <span class="tc mono"><b id="cur">00:00.0</b> / 00:30.0</span>
+      </div>
+      <div class="scrub" id="scrub" role="slider" aria-label="Timeline" tabindex="0" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" aria-valuetext="0 seconds">
+        <div class="track"><div class="fill" id="fill"></div></div>
+        <div class="ticks" id="ticks"></div>
+        <div class="head" id="head" style="left:0"></div>
+      </div>
+    </div>
+    <div class="beats" id="beats"></div>
+  </div>
+</section>
+
+<section id="creator">
+  <div class="shead">
+    <h2>The creator</h2>
+    <span class="note">Working content creator — not a model, not a spokesperson</span>
+  </div>
+  <p class="lede">The series only works if she reads as a colleague who got put on the AI thing. Her whole authority is that she read the policy so you didn't have to. Every generator drifts toward a beauty campaign, so the brief fights it line by line.</p>
+  <div class="cols">
+    <div>
+      <p class="eyebrow" style="margin-bottom:10px">Continuity — locked across all six</p>
+      <dl class="spec">
+        <div><dt>Age read</dt><dd>33–38. Old enough to have opinions, young enough to be on the platform.</dd></div>
+        <div><dt>Face</dt><dd>Freckles across the nose and left cheek, a faint scar above the right brow, visible pores, faint under-eye shadow.</dd></div>
+        <div><dt>Hair</dt><dd>Dark brown, tortoiseshell claw clip, flyaways at the temple. One strand she tucks mid-sentence.</dd></div>
+        <div><dt>Wardrobe</dt><dd>Oversized charcoal jumper over a white tee. No logos, nothing new-looking. A worn lanyard, card flipped blank.</dd></div>
+        <div><dt>Camera</dt><dd>Phone at arm's length, 26mm, just below eye line. Constant drift, one focus hunt per clip.</dd></div>
+        <div><dt>Light</dt><dd>North window key camera-left, fluorescent spill on the shoulders, mixed white balance, uncorrected.</dd></div>
+        <div><dt>Voice</dt><dd>UK, soft northern vowels, fast and dry. Opens mid-thought. Drops volume on the rule.</dd></div>
+        <div><dt>Never says</dt><dd>“Hi guys.” “Leverage.” “At Nteractive we believe.” “Thanks for watching.”</dd></div>
+      </dl>
+    </div>
+    <div>
+      <p class="eyebrow" style="margin-bottom:10px">The anti-brief</p>
+      <div class="vs">
+        <div><span class="hd">Reject</span><span class="hd">Direct</span></div>
+        <div><span class="no">Ring-light catchlight</span><span class="yes">Off-centre window reflection</span></div>
+        <div><span class="no">Retouched, flawless skin</span><span class="yes">Texture, a spot on the jaw, shine</span></div>
+        <div><span class="no">85mm portrait bokeh</span><span class="yes">26mm phone lens, room legible</span></div>
+        <div><span class="no">Styled, finished hair</span><span class="yes">Claw clip and flyaways</span></div>
+        <div><span class="no">Teal-and-orange grade</span><span class="yes">Flat, phone-native, no grade</span></div>
+        <div><span class="no">Centred, still, chest-up</span><span class="yes">Off-centre, head high in frame</span></div>
+        <div><span class="no">Clean studio backdrop</span><span class="yes">Cables, whiteboard, a radiator</span></div>
+      </div>
+      <div class="prompt"><span class="lbl">Character reference still — image model</span>Ultra-realistic candid smartphone photograph of a woman in her mid-thirties, mixed heritage, shoulder-length dark brown hair in a tortoiseshell claw clip with visible flyaways, clear rectangular glasses, small freckles across the nose and left cheek, faint scar above the right eyebrow, minimal makeup, visible skin texture and pores, slight shine on the nose, asymmetric eyebrows. Oversized charcoal wool jumper over a plain white t-shirt, small gold ear studs, a worn blank lanyard. Standing in the corner of a real working office: out-of-focus monitor bezels, a whiteboard with half-erased notes, a cable tray, a radiator. Shot on a phone at arm's length, 26mm wide lens, held slightly below eye line, deep depth of field so the room stays legible. Soft daylight from a large window camera-left at three-quarters, cool fluorescent spill on the shoulders, mixed and uncorrected white balance, slightly underexposed shadows, mild highlight clipping on the window. Flat phone-native colour, no grade, no retouching, no beauty lighting. Natural half-smile, mid-sentence, looking directly into the lens. Documentary realism. 9:16 vertical.</div>
+      <div class="prompt neg"><span class="lbl">Negative — every shot</span>ring light, ring-light catchlight, glamour, beauty campaign, fashion model, retouched skin, airbrushed, symmetrical face, studio backdrop, seamless white, 85mm portrait, shallow bokeh, teal and orange grade, HDR glow, influencer pose, perfect hair, editorial fashion, stock photo smile, cinematic lens flare, plastic skin, readable logos, legible on-screen text.</div>
+    </div>
+  </div>
+</section>
+
+<section id="slate">
+  <div class="shead">
+    <h2>Series 1 slate</h2>
+    <span class="note">Six clauses that change what you do on a Tuesday afternoon</span>
+  </div>
+  <p class="lede">Every episode carries one lane chip in the corner: <strong style="color:var(--go)">GREENLIT</strong> — do it freely · <strong style="color:var(--check)">CHECK FIRST</strong> — one question stands between you and go · <strong style="color:var(--stop)">HARD STOP</strong> — no exception without written sign-off from the Head of IT.</p>
+  <div class="slate" id="slate"></div>
+</section>
+
+<section id="rails">
+  <div class="shead">
+    <h2>Guardrails</h2>
+    <span class="note">The series has to live by the rule it teaches</span>
+  </div>
+  <p class="lede">A generative-AI series about generative-AI rules has to be the most compliant thing Nteractive ships this year — the first person who finds a shortcut in it gets to ignore all six episodes.</p>
+  <div class="rails" id="rails"></div>
+</section>
+
+<footer>
+  <span>Previz and production pack · internal distribution only · not client-facing</span>
+  <span class="mono">Sign-off: Head of IT → Head of ESG → account leads</span>
+</footer>
+</div>
+
+<script>
+var BEATS=[
+ {i:1,a:0,b:2.5,type:"th",size:"MCU",shot:"Handheld, she's already talking",
+  vo:"Two Copilots on your laptop. Only one's actually ours.",ost:"TWO COPILOTS",tone:"",lanes:[["go","greenlit"],["stop","hard stop"]],
+  dir:"Hook lands before she's settled in frame. No greeting."},
+ {i:2,a:2.5,b:5.5,type:"screen",size:"INSERT",shot:"Over-shoulder, thumb on the Work/Web toggle",
+  vo:"Same icon, same name, completely different rules.",ost:"same name ≠ same rules",tone:"",lanes:[["stop","hard stop"]],
+  dir:"Screen deliberately illegible — no readable text, no brand marks."},
+ {i:3,a:5.5,b:9.5,type:"th",size:"MCU",shot:"She leans toward the lens",
+  vo:"Work runs inside our Microsoft tenant. That's the safe one.",ost:"WORK = inside our tenant",tone:"go",lanes:[["go","greenlit"]],
+  dir:"First of only two coloured captions in the whole cut."},
+ {i:4,a:9.5,b:14,type:"hands",size:"INSERT",shot:"Hands and keyboard, labels stamp in one at a time",
+  vo:"Internal, confidential, client-confidential, restricted — personal data too. All fine in Work.",
+  ost:"Internal · Confidential · Client-Confidential · Restricted ✓",tone:"go",lanes:[["go","greenlit"]],
+  dir:"§6.2 verbatim. Four labels, four stamps, on the beat."},
+ {i:5,a:14,b:17.5,type:"point",size:"MCU",shot:"She stops moving. Quieter. Points at the lens",
+  vo:"Web is the public internet. Nothing of ours goes in.",ost:"WEB = public",tone:"stop",lanes:[["stop","hard stop"]],
+  dir:"The rule beat. Single low sub-drop on this cut. Everything else goes quiet."},
+ {i:6,a:17.5,b:24,type:"count",size:"MCU",shot:"Counting three on her fingers — fastest delivery in the cut",
+  vo:"Three catches: privileged stuff stays out of Copilot entirely. A contract that bans AI beats your licence. And no recording externals without everyone's yes.",
+  ost:"1 privileged → out · 2 contract > licence · 3 consent to record",tone:"",lanes:[["check","check first"]],
+  dir:"Three carve-outs that survive even inside Work."},
+ {i:7,a:24,b:27,type:"th",size:"MCU",shot:"Shrug, half-smile",
+  vo:"Either way, it still gets a human read before it ships.",ost:"human review isn't optional",tone:"",lanes:[["check","check first"]],
+  dir:"§5.5. Said as an aside, not a warning — that's why it sticks."},
+ {i:8,a:27,b:30,type:"grab",size:"OTS",shot:"She reaches for the camera; frame tips; cut on the black",
+  vo:"Check the toggle before you type.",ost:"CHECK THE TOGGLE",sub:"licence? helpdesk@nteractive.com",tone:"",lanes:[["go","greenlit"]],
+  dir:"CTA on a physical action, not a card. Cut hard on the blur."}
+];
+var DUR=30;
+
+/* ---- previz frames: honest storyboard panels, not fake photography ---- */
+function svgTag(inner){return '<svg viewBox="0 0 90 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+
+  '<rect x="0" y="0" width="90" height="160" fill="#0D100F"/>'+
+  '<rect x="0" y="0" width="90" height="160" fill="url(#lg)"/>'+
+  '<defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">'+
+  '<stop offset="0" stop-color="#1B2220" stop-opacity="1"/><stop offset="1" stop-color="#0B0E0D" stop-opacity="1"/>'+
+  '</linearGradient></defs>'+inner+'</svg>';}
+var L="#39413F",F="#232A28",A="#4E5A56";
+function room(){return '<rect x="4" y="8" width="30" height="20" fill="'+F+'"/>'+
+  '<rect x="58" y="14" width="28" height="18" fill="none" stroke="'+L+'" stroke-width="1"/>'+
+  '<line x1="0" y1="112" x2="90" y2="112" stroke="'+L+'" stroke-width="1"/>'+
+  '<rect x="62" y="96" width="24" height="16" fill="'+F+'"/>';}
+function person(cx,scale,arm){var s=scale||1;var hy=52;
+  return '<g transform="translate('+cx+','+hy+') scale('+s+')">'+
+   '<path d="M-26 78 C-26 44 -14 30 0 30 C14 30 26 44 26 78 Z" fill="'+A+'"/>'+
+   '<circle cx="0" cy="8" r="17" fill="'+A+'"/>'+
+   '<path d="M-17 4 h12 v7 h-12 z M5 4 h12 v7 h-12 z" fill="none" stroke="#0D100F" stroke-width="1.2"/>'+
+   '<path d="M-17 7 h34" stroke="#0D100F" stroke-width="1.2" fill="none"/>'+
+   (arm==="point"?'<circle cx="16" cy="52" r="6" fill="'+A+'"/><rect x="14" y="44" width="5" height="12" fill="'+A+'"/>':'')+
+   (arm==="count"?'<g fill="'+A+'"><rect x="10" y="44" width="4" height="14" rx="2"/><rect x="16" y="41" width="4" height="17" rx="2"/><rect x="22" y="44" width="4" height="14" rx="2"/></g>':'')+
+   '</g>';}
+function frameFor(t){
+  if(t==="screen") return svgTag(room()+'<rect x="10" y="52" width="70" height="46" rx="2" fill="#2B3431"/>'+
+    '<rect x="14" y="56" width="62" height="34" fill="#151A19"/>'+
+    '<rect x="18" y="60" width="26" height="6" fill="#3E4A46"/><rect x="46" y="60" width="26" height="6" fill="#2A3330"/>'+
+    '<rect x="18" y="70" width="54" height="3" fill="#232A28"/><rect x="18" y="76" width="44" height="3" fill="#232A28"/>'+
+    '<ellipse cx="50" cy="63" rx="7" ry="9" fill="'+A+'"/>');
+  if(t==="hands") return svgTag(room()+'<rect x="6" y="66" width="78" height="34" rx="2" fill="#2B3431"/>'+
+    '<rect x="12" y="72" width="66" height="22" fill="#151A19"/>'+
+    '<ellipse cx="28" cy="96" rx="13" ry="9" fill="'+A+'"/><ellipse cx="62" cy="96" rx="13" ry="9" fill="'+A+'"/>'+
+    '<rect x="20" y="30" width="50" height="26" fill="#1A211F"/>');
+  if(t==="grab") return svgTag('<g transform="rotate(-9 45 80)">'+room()+person(40,1.15,"")+
+    '<ellipse cx="62" cy="86" rx="20" ry="26" fill="'+A+'" opacity=".85"/></g>'+
+    '<rect x="0" y="0" width="90" height="160" fill="#0D100F" opacity=".35"/>');
+  return svgTag(room()+person(36,1,t==="point"?"point":(t==="count"?"count":"")));
+}
+
+/* ---- build shot list ---- */
+var beatsEl=document.getElementById("beats"),html="";
+for(var k=0;k<BEATS.length;k++){var B=BEATS[k];
+  html+='<button class="beat" type="button" data-i="'+k+'">'+
+    '<span class="t mono">'+fmt(B.a)+'</span><span>'+
+    '<span class="k">Shot '+B.i+' · '+B.size+' — '+B.shot+'</span>'+
+    '<span class="v">“'+B.vo+'”</span>'+
+    '<span class="d">'+B.dir+'</span></span></button>';
+}
+beatsEl.innerHTML=html;
+var beatEls=beatsEl.querySelectorAll(".beat");
+for(var m=0;m<beatEls.length;m++){(function(el){el.addEventListener("click",function(){
+  seek(BEATS[+el.dataset.i].a+0.05);});})(beatEls[m]);}
+
+/* ticks */
+var ticks=document.getElementById("ticks"),th="";
+for(var q=0;q<BEATS.length;q++){th+='<u style="flex:'+(BEATS[q].b-BEATS[q].a)+'"></u>';}
+ticks.innerHTML=th;
+
+function fmt(s){var mm=Math.floor(s/60),ss=s-mm*60;
+  return (mm<10?"0":"")+mm+":"+(ss<10?"0":"")+ss.toFixed(1);}
+
+/* ---- playhead ---- */
+var t=0,playing=false,last=0,curIdx=-1;
+var frameEl=document.getElementById("frame"),ostEl=document.getElementById("ost"),
+    lanesEl=document.getElementById("lanes"),sizeEl=document.getElementById("shotsize"),
+    burnEl=document.getElementById("burn"),fill=document.getElementById("fill"),
+    head=document.getElementById("head"),cur=document.getElementById("cur"),
+    playBtn=document.getElementById("play"),scrub=document.getElementById("scrub");
+
+function idxAt(x){for(var j=BEATS.length-1;j>=0;j--){if(x>=BEATS[j].a)return j;}return 0;}
+function render(force){
+  var i=idxAt(t),B=BEATS[i];
+  if(i!==curIdx||force){
+    curIdx=i;
+    frameEl.innerHTML=frameFor(B.type);
+    sizeEl.textContent=B.size;
+    burnEl.textContent="SHOT "+B.i+"/8 · "+fmt(B.a)+"–"+fmt(B.b);
+    ostEl.innerHTML='<b class="'+(B.tone||"")+'">'+B.ost+'</b>'+(B.sub?'<small>'+B.sub+'</small>':'');
+    var lh="";for(var z=0;z<B.lanes.length;z++){lh+='<span class="lane '+B.lanes[z][0]+'">'+B.lanes[z][1]+'</span>';}
+    lanesEl.innerHTML=lh;
+    for(var y=0;y<beatEls.length;y++){beatEls[y].setAttribute("aria-current",y===i?"true":"false");}
+  }
+  var p=(t/DUR*100);
+  fill.style.width=p+"%";head.style.left=p+"%";cur.textContent=fmt(t);
+  scrub.setAttribute("aria-valuenow",t.toFixed(1));
+  scrub.setAttribute("aria-valuetext",fmt(t)+" — shot "+B.i+", "+B.shot);
+}
+function tick(ts){
+  if(!playing)return;
+  if(!last)last=ts;
+  t+=(ts-last)/1000;last=ts;
+  if(t>=DUR){t=DUR;stop();render(true);return;}
+  render(false);requestAnimationFrame(tick);
+}
+function play(){if(t>=DUR)t=0;playing=true;last=0;playBtn.textContent="❚❚ Pause";requestAnimationFrame(tick);}
+function stop(){playing=false;last=0;playBtn.textContent=(t>=DUR?"↺ Replay":"▶ Play");}
+function seek(x){t=Math.max(0,Math.min(DUR,x));if(!playing)stop();render(false);}
+playBtn.addEventListener("click",function(){playing?stop():play();});
+document.getElementById("restart").addEventListener("click",function(){t=0;render(true);if(!playing)stop();else{last=0;}});
+function fromEvent(e){var r=scrub.getBoundingClientRect();var cx=(e.touches?e.touches[0].clientX:e.clientX);
+  seek((cx-r.left)/r.width*DUR);}
+var dragging=false;
+scrub.addEventListener("pointerdown",function(e){dragging=true;scrub.setPointerCapture(e.pointerId);fromEvent(e);});
+scrub.addEventListener("pointermove",function(e){if(dragging)fromEvent(e);});
+scrub.addEventListener("pointerup",function(e){dragging=false;});
+scrub.addEventListener("keydown",function(e){
+  if(e.key==="ArrowRight"){seek(t+0.5);e.preventDefault();}
+  if(e.key==="ArrowLeft"){seek(t-0.5);e.preventDefault();}
+  if(e.key===" "){playing?stop():play();e.preventDefault();}
+});
+render(true);
+
+/* ---- slate ---- */
+var EPS=[
+ {n:1,t:"Two Copilots",lanes:[["go","greenlit"],["stop","hard stop"]],c:"§6.2 Copilot Work vs Web",
+  d:"Both doors say Copilot. Work sits inside our Microsoft tenant and takes everything up to Restricted, personal data included. Web is the public internet. The highest-frequency decision in the building."},
+ {n:2,t:"Check the Contract",lanes:[["check","check first"]],c:"§5.7 Client-facing use",
+  d:"Some Nteractive contracts prohibit AI outright; others restrict what data may be processed. You check before you use any tool on client work. Account leads flag it at kickoff — to the team and to IT."},
+ {n:3,t:"Shadow AI",lanes:[["stop","hard stop"]],c:"§5.6 Shadow AI",
+  d:"Three faces, counted on fingers: a free or personal-tier account, a browser extension, and an AI feature switched on inside a platform nobody reviewed. That third one catches good people."},
+ {n:4,t:"Nothing Ships Unread",lanes:[["check","check first"]],c:"§5.5 Human review",
+  d:"She reads out a fluent, confident, entirely wrong AI paragraph and finds the error on camera. The standard applies to AI output someone else generated that you're now working with, too."},
+ {n:5,t:"Don't Build It Alone",lanes:[["stop","hard stop"]],c:"§5.8–5.9 Development & escalation",
+  d:"Four triggers, any one of which means IT reviews it before you build, test or ship: reachable from outside, touching third-party data, wired into our systems or credentials, or meant for real client use."},
+ {n:6,t:"Say It Early",lanes:[["go","greenlit"]],c:"§8 Incident reporting",
+  d:"Six reportable situations, said without menace — then the line that makes the series work: a prompt, good-faith self-report is not disciplined for the report itself. Concealment is the thing that ends badly."}
+];
+var sh="";
+for(var e=0;e<EPS.length;e++){var E=EPS[e];var lh="";
+  for(var g=0;g<E.lanes.length;g++){lh+='<span class="tag '+E.lanes[g][0]+'">'+E.lanes[g][1]+'</span>';}
+  sh+='<article class="ep"><div class="n mono">0'+E.n+'</div><div><h3>'+E.t+' '+lh+'</h3><p>'+E.d+'</p></div>'+
+      '<div class="clause mono">'+E.c+'</div></article>';}
+document.getElementById("slate").innerHTML=sh;
+
+/* ---- rails ---- */
+var RAILS=[
+ ["§5.1 · §6.1","Approved tools only","Every image, video and voice generator used on this series goes through Head of IT and Head of ESG review and onto the Trelica registry before the first render."],
+ ["§5.3","Nothing confidential in a prompt","Prompts are drafted in an approved environment only. No client names, no staff names, no real screens — every insert shot is deliberately illegible."],
+ ["§5.5","Human review, visibly","The Head of IT signs off script accuracy before render and the final cut before publish. The clause-by-clause accuracy table is the review artefact."],
+ ["§5.6","No shortcut in the edit","No browser-extension editors, no “AI enhance” toggle inside the edit tool unless IT has reviewed that feature. A new AI feature needs approval before it's switched on."],
+ ["§5.9","Automation is a system","Anything built to batch-render or auto-publish episodes stops being personal productivity. IT reviews it before it's built."],
+ ["Likeness","Synthetic, and said out loud","Tess resembles no identifiable person and is reverse-image checked before production. A persistent corner mark on every episode, and she says it herself in the trailer."],
+ ["§10","Exceptions are written","If any guardrail can't be met it's an exception: written approval from the Head of IT and the risk on the risk register. Not a verbal nod in a stand-up."],
+ ["Provenance","Log every asset","Tool, version, date, prompt reference, reviewer. Copyright risk on generative output is named in the policy's own AI-types table."]
+];
+var rh="";
+for(var r=0;r<RAILS.length;r++){rh+='<div class="rail"><span class="c mono">'+RAILS[r][0]+'</span><h4>'+RAILS[r][1]+'</h4><p>'+RAILS[r][2]+'</p></div>';}
+document.getElementById("rails").innerHTML=rh;
+</script>
