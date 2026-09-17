@@ -1,0 +1,99 @@
+1
+00:00:00,000 --> 00:00:01,111
+Two Copilots on your
+
+2
+00:00:01,111 --> 00:00:02,222
+laptop. Only one's actually
+
+3
+00:00:02,222 --> 00:00:02,500
+ours.
+
+4
+00:00:02,500 --> 00:00:04,214
+Same icon, same name,
+
+5
+00:00:04,214 --> 00:00:05,500
+completely different rules.
+
+6
+00:00:05,500 --> 00:00:07,100
+Work runs inside our
+
+7
+00:00:07,100 --> 00:00:08,700
+Microsoft tenant. That's the
+
+8
+00:00:08,700 --> 00:00:09,500
+safe one.
+
+9
+00:00:09,500 --> 00:00:11,000
+Internal, confidential, client-confidential, restricted
+
+10
+00:00:11,000 --> 00:00:12,500
+— personal data too.
+
+11
+00:00:12,500 --> 00:00:14,000
+All fine in Work.
+
+12
+00:00:14,000 --> 00:00:15,400
+Web is the public
+
+13
+00:00:15,400 --> 00:00:16,800
+internet. Nothing of ours
+
+14
+00:00:16,800 --> 00:00:17,500
+goes in.
+
+15
+00:00:17,500 --> 00:00:18,583
+Three catches: privileged stuff
+
+16
+00:00:18,583 --> 00:00:19,667
+stays out of Copilot
+
+17
+00:00:19,667 --> 00:00:20,750
+entirely. A contract that
+
+18
+00:00:20,750 --> 00:00:21,833
+bans AI beats your
+
+19
+00:00:21,833 --> 00:00:22,917
+licence. And no recording
+
+20
+00:00:22,917 --> 00:00:24,000
+externals without everyone's yes.
+
+21
+00:00:24,000 --> 00:00:25,091
+Either way, it still
+
+22
+00:00:25,091 --> 00:00:26,182
+gets a human read
+
+23
+00:00:26,182 --> 00:00:27,000
+before it ships.
+
+24
+00:00:27,000 --> 00:00:29,000
+Check the toggle before
+
+25
+00:00:29,000 --> 00:00:30,000
+you type.

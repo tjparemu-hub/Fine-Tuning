@@ -1,0 +1,35 @@
+GREENLIGHT EP01 "TWO COPILOTS" — AVATAR-TOOL SCRIPT
+For HeyGen, Arcads, Creatify, Captions.ai — tools where you pick a stock UGC
+presenter and paste a script. This is the fastest route to a real-looking person
+with real audio, and the one that needs the least fixing afterwards.
+
+AVATAR SELECTION — reject anything that looks like a spokesperson
+  ✓ Filmed handheld, at arm's length, in a real room
+  ✓ Ordinary clothes, no blazer, no lapel mic visible
+  ✓ Mid-thirties, talks fast, moves while talking
+  ✓ Office, kitchen or corridor background — not a studio, not a sofa set
+  ✗ Any avatar in front of a plain wall or a bookshelf-with-plant
+  ✗ Any avatar that opens with a wave or a smile-and-hold
+  ✗ Any avatar labelled "spokesperson", "presenter", "corporate" or "luxury"
+
+VOICE — British, female, mid-thirties, conversational. Speed 1.05-1.10x.
+Do not use a "narration" or "documentary" voice preset. It should sound like
+someone leaving a voice note, not reading a script.
+
+SCRIPT — paste as-is. Ellipses are breath, not silence. Total ~30 seconds.
+
+Two Copilots on your laptop. Only one's actually ours.
+Same icon, same name... completely different rules.
+Work runs inside our Microsoft tenant. That's the safe one.
+Internal, confidential, client-confidential, restricted — personal data too. All fine in Work.
+Web is the public internet. Nothing of ours goes in.
+Three catches: privileged stuff stays out of Copilot entirely. A contract that bans AI beats your licence. And no recording externals without everyone's yes.
+Either way, it still gets a human read before it ships.
+Check the toggle before you type.
+
+AFTER GENERATING
+1. Burn in captions from ep01.srt (or let the tool auto-caption — check the
+   hyphenated terms, they get mangled: "client-confidential", "Copilot").
+2. Colour two words and nothing else: WORK green, WEB red.
+3. Add the lane chip top-left and the "AI-generated presenter" mark bottom-right.
+4. Cut the tool's outro card if it adds one.

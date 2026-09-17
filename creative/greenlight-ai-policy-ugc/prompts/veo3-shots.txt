@@ -1,0 +1,44 @@
+GREENLIGHT EP01 "TWO COPILOTS" — 8 SHOT PROMPTS
+For Veo 3 / Kling / Sora / Runway Gen-4. Paste one block per generation.
+
+STEP 0 — Generate the character still FIRST (Midjourney, Flux or Imagen), pick ONE,
+and attach it as the image reference to every shot below. Without it, her face,
+hair and wardrobe will change between shots.
+
+CHARACTER STILL PROMPT
+Ultra-realistic candid smartphone photograph of a woman in her mid-thirties, mixed heritage, shoulder-length dark brown hair in a tortoiseshell claw clip with visible flyaways, clear rectangular glasses, small freckles across the nose and left cheek, faint scar above the right eyebrow, minimal makeup, visible skin texture and pores, slight shine on the nose, asymmetric eyebrows. Oversized charcoal wool jumper over a plain white t-shirt, small gold ear studs, a worn blank lanyard. Standing in the corner of a real working office: out-of-focus monitor bezels, a whiteboard with half-erased notes, a cable tray, a radiator. Shot on a phone at arm's length, 26mm wide lens, held slightly below eye line, deep depth of field so the room stays legible. Soft daylight from a large window camera-left at three-quarters, cool fluorescent spill on the shoulders, mixed and uncorrected white balance, slightly underexposed shadows, mild highlight clipping on the window. Flat phone-native colour, no grade, no retouching, no beauty lighting. Natural half-smile, mid-sentence, looking directly into the lens. Documentary realism. 9:16 vertical.
+
+NEGATIVE (paste into every generation)
+ring light, ring-light catchlight, glamour, beauty campaign, fashion model, retouched skin, airbrushed, symmetrical face, studio backdrop, seamless white, 85mm portrait, shallow bokeh, teal and orange grade, HDR glow, influencer pose, perfect hair, editorial fashion, stock photo smile, cinematic lens flare, plastic skin, readable logos, legible on-screen text, subtitles, watermark
+
+================================================================
+SHOT 1 — 0.0-2.5s — MCU
+The woman from the reference image, oversized charcoal jumper over a white tee, clear glasses, hair in a tortoiseshell claw clip with flyaways, worn blank lanyard. She talks straight into a phone camera held at arm's length just below her eye line, in the corner of a real office: out-of-focus monitor bezels, sticky notes, a cable tray behind her. Handheld with constant small drift, one autofocus hunt at the start. Soft window daylight camera-left, cool fluorescent spill on her shoulders, mixed uncorrected white balance. 26mm phone lens, deep focus, flat phone-native colour, no grade. She is already mid-thought as the clip starts, quick and dry, gesturing with her free hand. She says: "Two Copilots on your laptop. Only one's actually ours." British accent, soft northern vowels, fast delivery. Ambient room tone, a distant keyboard, HVAC hum. Documentary UGC selfie video, not a commercial. 9:16 vertical.
+
+================================================================
+SHOT 2 — 2.5-5.5s — INSERT
+Handheld over-the-shoulder phone shot of a laptop screen showing a generic AI assistant sidebar with two mode tabs, a thumb moving between them. Screen slightly blown out, faint moiré on the panel, the phone hunting focus once. Office desk, a mug, a keyboard, daylight from the left. No legible brand marks, no readable text on screen. Flat phone-native colour, no grade. Her voice continues off-camera: "Same icon, same name, completely different rules." British accent, fast, dry. Room tone, keyboard. 9:16 vertical.
+
+================================================================
+SHOT 3 — 5.5-9.5s — MCU
+Same woman, same office corner, same wardrobe and claw clip and lanyard as the reference. She leans toward the phone camera held at arm's length. Handheld drift, 26mm phone lens, deep focus, soft window daylight camera-left, cool overhead spill, flat phone-native colour, no grade. She says: "Work runs inside our Microsoft tenant. That's the safe one." British accent, soft northern vowels, slight emphasis on "inside". Natural blinks and micro-expressions, one glance off-lens and back. Room tone. Documentary UGC realism. 9:16 vertical.
+
+================================================================
+SHOT 4 — 9.5-14.0s — INSERT
+Close handheld phone shot of hands on a laptop keyboard beside an open notebook, a document on screen deliberately out of focus and unreadable, daylight from the left, dust visible in the light. Short unpainted nails, one chipped, a thin steel watch. Flat colour, no grade, no brand marks, no legible text. Her voice continues off-camera, listing quickly: "Internal, confidential, client-confidential, restricted — personal data too. All fine in Work." British accent, brisk, ticking items off. Room tone, keyboard. 9:16 vertical.
+
+================================================================
+SHOT 5 — 14.0-17.5s — MCU
+Same woman, same office corner, same wardrobe. She stops gesturing, goes still, drops her voice, and points one finger directly at the lens. Handheld drift continues. 26mm phone lens, soft window daylight camera-left, flat phone-native colour, no grade. She says: "Web is the public internet. Nothing of ours goes in." British accent, quieter and slower than the previous line, serious but not angry. Room tone drops away. Documentary UGC realism. 9:16 vertical.
+
+================================================================
+SHOT 6 — 17.5-24.0s — MCU
+Same woman, same office corner, same wardrobe. She counts three items on the fingers of her free hand, talking fast. Handheld drift, 26mm phone lens, deep focus, soft window daylight camera-left, flat phone-native colour, no grade. She says: "Three catches: privileged stuff stays out of Copilot entirely. A contract that bans AI beats your licence. And no recording externals without everyone's yes." British accent, soft northern vowels, the fastest delivery in the piece, one small self-interrupting breath. Room tone. Documentary UGC realism. 9:16 vertical.
+
+================================================================
+SHOT 7 — 24.0-27.0s — MCU
+Same woman, same office corner, same wardrobe. A small shrug and a half-smile. Handheld drift, 26mm phone lens, soft window daylight camera-left, flat phone-native colour, no grade. She says: "Either way, it still gets a human read before it ships." British accent, thrown away as an aside rather than a warning. Room tone. Documentary UGC realism. 9:16 vertical.
+
+================================================================
+SHOT 8 — 27.0-30.0s — OTS
+Same woman, same office corner, same wardrobe. She says one last line then reaches toward the phone camera with her free hand; the frame tips and blurs as she grabs it, motion blur and rolling-shutter skew, ending on a dark blurred frame. Same window light, flat phone-native colour, no grade. She says: "Check the toggle before you type." British accent, brisk, final. Room tone cut short. 9:16 vertical.
