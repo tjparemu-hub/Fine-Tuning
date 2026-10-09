@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+<title>Nteractive Contract Review Assistant - Contract read closely and checked</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#0F2A4A"/><stop offset="1" stop-color="#0A1C33"/></linearGradient></defs>
+<rect width="192" height="192" rx="40" fill="url(#bg)"/>
+<g transform="translate(-8 0)">
+<path d="M52 44a8 8 0 0 1 8-8H108L128 56V128a8 8 0 0 1-8 8H60a8 8 0 0 1-8-8Z" fill="#F5F8FB"/>
+<path d="M108 36V50a6 6 0 0 0 6 6H128Z" fill="#C9D6E3"/><path d="M64 62 H112" stroke="#9FB3C8" stroke-width="6" stroke-linecap="round"/><path d="M64 76 H112" stroke="#9FB3C8" stroke-width="6" stroke-linecap="round"/><path d="M64 90 H96" stroke="#9FB3C8" stroke-width="6" stroke-linecap="round"/></g>
+<path d="M137 129L155 147" stroke="#1FB5A8" stroke-width="12" stroke-linecap="round"/>
+<circle cx="120" cy="112" r="24" fill="#E3F6F4" stroke="#1FB5A8" stroke-width="8"/>
+<path d="M109 112L117 120L132 104" fill="none" stroke="#0F2A4A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

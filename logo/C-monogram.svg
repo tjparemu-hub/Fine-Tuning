@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+<title>Nteractive Contract Review Assistant - N monogram ending in a tick</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#0F2A4A"/><stop offset="1" stop-color="#0A1C33"/></linearGradient></defs>
+<rect width="192" height="192" rx="40" fill="url(#bg)"/>
+
+<path d="M54 140V54L114 138" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M114 138L142 54" fill="none" stroke="#1FB5A8" stroke-width="18" stroke-linecap="round"/>
+</svg>
